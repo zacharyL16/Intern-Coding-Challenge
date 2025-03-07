@@ -1,10 +1,13 @@
 # CUAVs-Coding-Challenge
 
-**Challenge Overview:**
-You will be provided with two data files, one in JSON format and the other in CSV format containing geographic coordinates (latitude, longitude) and corresponding signal IDs. These files represent sensor outputs from various locations that record environmental signals. Your task is to correlate these sensor readings based on the coordinates to identify common signals that may have been recorded by multiple sensors.
+Challenge Overview:
 
-**Input Data:**
-JSON file: Contains a list of sensor readings, where each record consists of an ID, latitude, and longitude. CSV file: Contains a similar set of records but in tabular format. The fields include the ID, latitude, and longitude. (See sample files)
+At Canadian UAVs, we handle large amounts of geospatial data, which is the focus of this challenge. The task involves correlating data from two sensors that detect anomalies. However, the sensors are not highly accurate, resulting in false positives and variations in their location readings. Your challenge is to associate the sensor readings based on their coordinates to identify common signals that may have been detected by both sensors. This correlation increases the likelihood that the signal is a genuine detection rather than a false positive.
 
-**Goal:** 
-Correlate the sensor data from both the JSON and CSV files by matching latitude and longitude values within a 100 meter tolerance threshold (to account for slight variations in reported coordinates). Identify common signals: For each pair of coordinates found within the tolerance range, associate the signal id from each sensor. The output should include a mapping between the sensor IDs from both files that represent the same geographical location.
+Input Data:
+
+The two sensors provide different output formats: one sensor outputs data in CSV format, and the other outputs data in JSON format. Please refer to the sample data for the exact format of each sensor's output. Both sensors assign a unique ID to each reading, but note that different sensors may use the same IDs. The sensor readings include location coordinates in decimal degrees, using the WGS 84 format, representing where the anomaly was detected. The sensors have an accuracy of 100 meters, meaning that the reported location is within 100 meters of the actual anomaly location.
+
+Output:
+
+The output should consist of pairs of IDs, where one ID is from the first sensor, and the second ID is from the second sensor.
